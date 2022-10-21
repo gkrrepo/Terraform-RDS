@@ -85,3 +85,12 @@ data "aws_secretsmanager_secret_version" "password" {
   secret_id = data.aws_secretsmanager_secret.password
 }
 
+<<<<<<< HEAD
+=======
+## Print the DB password for future refernce
+
+output "db_password" {
+  value = random_password.Development_rds.result
+  description = "db password"
+}
+>>>>>>> e53d957119d34715852ca218a6fb096d860e0dd9
