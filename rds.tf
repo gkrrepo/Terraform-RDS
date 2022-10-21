@@ -52,7 +52,7 @@ resource "aws_db_instance" "Development_rds_instance" {
   storage_type           = "gp2"
   db_subnet_group_name   = aws_db_subnet_group.development-db-subnet-grp.name
   vpc_security_group_ids = [aws_security_group.rds.id]
-  parameter_group_name   = aws_db_parameter_group.Development_rds_parameter.name
+ # parameter_group_name   = aws_db_parameter_group.Development_rds_parameter.name
   publicly_accessible    = false
   skip_final_snapshot    = true
   backup_window          = "03:00-06:00"
