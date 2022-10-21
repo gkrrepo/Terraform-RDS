@@ -1,13 +1,13 @@
 variable "region" {
-  default     = "us-east-2"
+  default     = "eu-west-1"
   description = "AWS region"
 }
 
-variable "db_password" {
-  default = "Postgres12345"
-  description = "RDS root user password"
-  sensitive   = true
-}
+//variable "db_password" {
+ // default = "Postgres12345"
+  //description = "RDS root user password"
+  //sensitive   = true
+//}
 
 variable "db_username" {
   default = "postgres"

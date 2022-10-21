@@ -46,7 +46,7 @@ resource "aws_db_instance" "Development_rds_instance" {
   engine                 = "postgres"
   engine_version         = "13.1"
   username               = var.db.username
-  password               = var.db_password
+  password               = data.aws_secretsmanager_secret_version.password
   port                   = 5432
   storage_encrypted      = true
   storage_type           = "gp2"
@@ -74,4 +74,20 @@ resource "aws_db_instance" "Development_rds_instance" {
 ####  }
 ####}
 
-###
+### To get the secret from AWS Secret Manager
+
+data "aws_secretsmanager_secret" "password" {
+  name = "Development_rds_password"
+
+}
+
+data "aws_secretsmanager_secret_version" "password" {
+  secret_id = data.aws_secretsmanager_secret.password
+}
+
+## Print the DB password for future refernce
+
+output "db_password" {
+  value = random_password.Development_rds.result
+  description = "db password"
+}
