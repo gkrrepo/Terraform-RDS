@@ -12,3 +12,11 @@ output "db_hostname" {
     description = "DB Hostname"
   
 }
+
+output "db_port" {
+  value = aws_db_instance.Development_rds_instance.port
+}
+
+output "db_url" {
+  value = "jdbc:mysql://${aws_db_instance.Development_rds_instance.address}/${var.username}"
+}

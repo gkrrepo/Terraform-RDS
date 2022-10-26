@@ -14,3 +14,9 @@ variable "db_username" {
   description = "RDS root user name"
   sensitive   = true
 }
+
+variable "username" {
+  default = "dev"
+  description = "DB instance name"
+  
+}

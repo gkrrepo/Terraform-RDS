@@ -22,6 +22,7 @@ resource "aws_db_instance" "Development_rds_instance" {
   max_allocated_storage  = 70
   engine                 = "postgres"
   engine_version         = "13.1"
+  name                   = var.username
   username               = var.db.username
   password               = data.aws_secretsmanager_secret_version.password
   port                   = 5432
